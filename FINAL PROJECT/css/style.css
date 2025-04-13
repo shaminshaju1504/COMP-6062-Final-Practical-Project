@@ -1,0 +1,37 @@
+h1
+{
+    color:#ff1c42;
+    margin-top :50px;
+    margin-bottom:50px;
+}
+body {
+    background-color: #f2f5f9;
+    color:black;
+}
+.card {
+    
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #9b1d07;
+}
+.box{
+    background-color:beige;
+}
+footer{
+    background-color: #1c43ff;
+    color:#fff;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+@media(max-width:768px){
+    body{
+        background-color:#fb7b0b;
+        color:#000;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    
+}
