@@ -1,9 +1,10 @@
-h1
-{
-    color:#ff1c42;
-    margin-top :50px;
-    margin-bottom:50px;
+h1 {
+    color: #ca4028;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-weight: bold;
 }
+
 body {
     background-color: #f2f5f9;
     color:black;
@@ -20,7 +21,7 @@ body {
     background-color:beige;
 }
 footer{
-    background-color: #1c43ff;
+    background-color: #4279a9;
     color:#fff;
     padding: 40px;
     margin-top: 40px;
