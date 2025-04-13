@@ -1,12 +1,12 @@
 const app = Vue.createApp({
     data() {
         return {
-            user: {
+            user: {//data structure for user
                 name: '',
                 age: '',
                 photo: ''
             },
-            weather: {
+            weather: {//data structure for weather
                 temperature: '',
                 wind: '',
                 description: '',
@@ -14,7 +14,7 @@ const app = Vue.createApp({
                 province: 'Ontario',
                 country: 'Canada'
             },
-            dictionary: {
+            dictionary: {//data structure for dictionary
                 word: '',
                 phonetic: '',
                 definition: '',
@@ -24,8 +24,8 @@ const app = Vue.createApp({
     },
     methods: {
         fetchUserProfile: function() {
-            fetch('http://comp6062.liamstewart.ca/random-user-profile')
-            .then(response =>{ 
+            fetch('http://comp6062.liamstewart.ca/random-user-profile')// fetching data from link
+            .then(response =>{ //checking responce or input from user
                 if(response.ok)
                 { 
                     return response.json();
@@ -42,9 +42,9 @@ const app = Vue.createApp({
                 .catch(error => console.error("Error fetching user profile:", error));
         },
         fetchWeather: function() {
-            const url = `http://comp6062.liamstewart.ca/weather-information?city=${this.weather.city}&province=${this.weather.province}&country=${this.weather.country}`;
+            const url = `http://comp6062.liamstewart.ca/weather-information?city=${this.weather.city}&province=${this.weather.province}&country=${this.weather.country}`;// fetching data from link
             fetch(url)
-            .then(response =>{ 
+            .then(response =>{ // checking responce conditions
                 if(response.ok)
                     { return response.json();
 
@@ -62,9 +62,9 @@ const app = Vue.createApp({
         },
         fetchDefinition: function() {
             if (!this.dictionary.searchWord) return;
-            const url = `https://comp6062.liamstewart.ca/define?word=${this.dictionary.searchWord}`;
+            const url = `https://comp6062.liamstewart.ca/define?word=${this.dictionary.searchWord}`;// fetching data from link
             fetch(url)
-            .then(response =>{ 
+            .then(response =>{ // checking responce conditions
                 if(response.ok)
                 { 
                     return response.json();
@@ -75,7 +75,7 @@ const app = Vue.createApp({
             })
             .then(data => {
                 console.log("API Responce:",data);
-                    if(Array.isArray(data)&& data.length>0)
+                    if(Array.isArray(data)&& data.length>0)//checking array length
                     { const definition =data[0];
                             this.dictionary.word = definition.word;
                             this.dictionary.phonetic = definition.phonetic;
