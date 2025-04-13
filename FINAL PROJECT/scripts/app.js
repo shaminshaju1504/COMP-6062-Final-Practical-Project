@@ -25,8 +25,15 @@ const app = Vue.createApp({
     methods: {
         fetchUserProfile: function() {
             fetch('http://comp6062.liamstewart.ca/random-user-profile')
-                .then(response =>{  return response.json();})
-
+            .then(response =>{ 
+                if(response.ok)
+                { 
+                    return response.json();
+                }
+            else{
+                console.log('An error occured.Please try again');
+                }
+            })
                 .then(data => {
                     this.user.name = `${data.first_name} ${data.last_name}`;
                     this.user.age = data.age;
@@ -37,7 +44,15 @@ const app = Vue.createApp({
         fetchWeather: function() {
             const url = `http://comp6062.liamstewart.ca/weather-information?city=${this.weather.city}&province=${this.weather.province}&country=${this.weather.country}`;
             fetch(url)
-            .then(response =>{  return response.json();})
+            .then(response =>{ 
+                if(response.ok)
+                    { return response.json();
+
+                    }
+                else{
+                    console.log('An error occured.Please try again');
+                }
+            })
                 .then(data => {
                     this.weather.temperature = data.temperature;
                     this.weather.wind = data.wind_speed;
@@ -49,7 +64,15 @@ const app = Vue.createApp({
             if (!this.dictionary.searchWord) return;
             const url = `https://comp6062.liamstewart.ca/define?word=${this.dictionary.searchWord}`;
             fetch(url)
-            .then(response =>{  return response.json();})
+            .then(response =>{ 
+                if(response.ok)
+                { 
+                    return response.json();
+                }
+            else{
+                console.log('An error occured.Please try again');
+                }
+            })
             .then(data => {
                 console.log("API Responce:",data);
                     if(Array.isArray(data)&& data.length>0)
